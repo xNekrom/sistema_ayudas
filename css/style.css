@@ -1,0 +1,73 @@
+/* Basic body and layout setup */
+body {
+    display: flex;
+    background-color: #f4f7f6; /* A very light, clean grey for the main content background */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    background: #0d1a2e; /* Dark blue-grey for the sidebar */
+    color: #fff;
+    min-height: 100vh;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    padding: 1.2rem 1rem;
+    background: #081221; /* A slightly darker shade for the header */
+    text-align: center;
+    border-bottom: 1px solid #1a2c44;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.sidebar .nav-item {
+    transition: background-color 0.2s;
+}
+
+.sidebar .nav-link {
+    padding: 0.8rem 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    border-left: 4px solid transparent;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    color: #fff;
+    background: #122542;
+    border-left-color: #00bcd4; /* Minty theme accent color */
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background: #1a3a6e;
+    border-left-color: #00bcd4; /* Minty theme accent color */
+    font-weight: 500;
+}
+
+/* Add some space for icons */
+.sidebar .nav-link .fas {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Styles */
+#content {
+    flex-grow: 1; /* Takes up remaining space */
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Top bar user info */
+.user-info {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
