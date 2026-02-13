@@ -65,8 +65,8 @@ if (isset($_POST['subir'])) {
         $ruta_fisica_final = $directorio_destino . $nombre_final;
 
         if (move_uploaded_file($tipo_archivo_temporal, $ruta_fisica_final)) {
-            $sql = "INSERT INTO documentos (titulo, cliente_id, categoria_id, ruta_archivo, version, activo, usuario_subio_id) 
-                    VALUES ('$titulo', $cliente_id, $categoria_id, '$ruta_fisica_final', $nueva_version, 1, '{$_SESSION['usuario_id']}')";
+            $sql = "INSERT INTO documentos (titulo, cliente_id, categoria_id, ruta_archivo, version, activo, usuario_subio_id, estado_aprobacion) 
+            VALUES ('$titulo', $cliente_id, $categoria_id, '$ruta_fisica_final', $nueva_version, 0, '{$_SESSION['usuario_id']}', 'Pendiente')";
             $conn->query($sql);
             $_SESSION['flash_msg'] = "✅ Versión $nueva_version subida con éxito.";
             $_SESSION['flash_type'] = "success";
@@ -90,7 +90,7 @@ if (isset($_GET['borrar_id'])) {
 
 // --- FIN DE LÓGICA ---
 
-require_once 'templates/header.php'; 
+require_once 'templates/header.php';
 ?>
 
 <!-- Contenido específico de la página -->
@@ -191,13 +191,13 @@ require_once 'templates/header.php';
 </div>
 
 <script>
-// Muevo la función JS específica de esta página aquí, fuera del footer.
-function abrirReporteModal(id, titulo) {
-    document.getElementById('input_doc_id').value = id;
-    document.getElementById('nombre_doc_modal').innerText = titulo;
-    var myModal = new bootstrap.Modal(document.getElementById('modalReporte'));
-    myModal.show();
-}
+    // Muevo la función JS específica de esta página aquí, fuera del footer.
+    function abrirReporteModal(id, titulo) {
+        document.getElementById('input_doc_id').value = id;
+        document.getElementById('nombre_doc_modal').innerText = titulo;
+        var myModal = new bootstrap.Modal(document.getElementById('modalReporte'));
+        myModal.show();
+    }
 </script>
 
 <?php require_once 'templates/footer.php'; ?>
